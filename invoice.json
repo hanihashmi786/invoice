@@ -1,0 +1,41 @@
+{
+  "invoice_title": "فاتورة ضريبية رقم 1",
+  "company_name": "شركة عبدالجادر تركي عواض العتيبي للمقاولات الوطنية",
+  "company_address": "الرياض – حي المرسلات – شارع الأمير عبدالمجيد بن عبدالعزيز",
+  "company_phone": "966 11 465 2841",
+  "company_email": "oce@otaishan.com.sa",
+  "invoice_date": "2025-04-21",
+  "invoice_number": "1",
+  "customer_number": "310882368900003",
+  "tax_registration_number": "310882368900003",
+  "recipient_name": "معهد الإدارة العامة – الدور السادس – إدارة المشتريات والعقود – مكتب 105",
+  "recipient_phone": "011 4745882",
+  "recipient_fax": "0114745582, 0114745558",
+  "recipient_email": "Purchasing@ipa.edu.sa",
+  "items": [
+    {
+      "description": "فاتورة أعمال إزالة وفك وتركيب مكيفات – مبنى رقم 2-7-0-1",
+      "quantity": 1,
+      "unit_price": 40000.00,
+      "total_excl_vat": 40000.00,
+      "vat_rate": "15%",
+      "vat_amount": 6000.00,
+      "total_incl_vat": 46000.00
+    },
+    {
+      "description": "توريد وتركيب أبواب للساحات ودورات المياه وذلك حسب كراسة الشروط والمواصفات المعتمدة",
+      "quantity": 1,
+      "unit_price": 242000.00,
+      "total_excl_vat": 242000.00,
+      "vat_rate": "15%",
+      "vat_amount": 36300.00,
+      "total_incl_vat": 278300.00
+    }
+  ],
+  "subtotal_excl_vat": 282000.00,
+  "total_vat": 42300.00,
+  "grand_total_incl_vat": 324300.00,
+  "iban": "SA064500000815396684001",
+  "approver": "توقيع مدير الحسابات",
+  "approver_name": "الدكتور م. عبدالجادر تركي العتيبي"
+}

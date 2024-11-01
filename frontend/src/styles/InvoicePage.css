@@ -1,0 +1,955 @@
+/* Base styles and utilities */
+/* Reverted mono-font size back to original 0.45rem */
+.mono-font {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.45rem;
+  line-height: 1.1;
+}
+
+/* Keeping Sakkal Majalla font import for Arabic */
+@font-face {
+  font-family: "Sakkal Majalla";
+  src: url("../../public/fonts/SakkalMajalla.ttf") format("truetype"),
+       local("Sakkal Majalla"), local("Sakkal Majalla Regular");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sakkal Majalla";
+  src: url("../../public/fonts/SakkalMajalla-Bold.ttf") format("truetype"),
+       local("Sakkal Majalla Bold");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* Keeping currency display styling for Saudi Riyal icon */
+.currency-display {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.saudi-riyal-icon {
+  flex-shrink: 0;
+}
+
+/* Page break prevention classes */
+.avoid-break {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
+
+.page-break-before {
+  page-break-before: always !important;
+  break-before: page !important;
+}
+
+.page-break-after {
+  page-break-after: always !important;
+  break-after: page !important;
+}
+
+/* Reverted PDF generation to original scaling 0.85 */
+.pdf-generation {
+  transform: scale(0.85) !important;
+  transform-origin: top center !important;
+  max-height: 280mm !important;
+  overflow: hidden !important;
+}
+
+.pdf-generation * {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
+
+.pdf-generation .items-section {
+  max-height: 120mm !important;
+  overflow: hidden !important;
+}
+
+.pdf-generation .table-cell {
+  padding: 0.3rem 0.2rem !important;
+  font-size: 0.55rem !important;
+  line-height: 1.1 !important;
+}
+
+.pdf-generation .signature-section {
+  height: auto !important;
+  min-height: 2rem !important;
+}
+
+.pdf-generation .signature-line {
+  height: 2rem !important;
+}
+
+.pdf-generation .stamp-container {
+  height: 2rem !important;
+}
+
+/* Improved RTL handling */
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.rtl .header-grid {
+  direction: rtl;
+}
+
+.rtl .company-details-left {
+  text-align: right;
+  direction: rtl;
+}
+
+.rtl .company-details-right {
+  text-align: left;
+  direction: rtl;
+}
+
+.rtl .info-row {
+  direction: rtl;
+  text-align: right;
+  justify-content: space-between;
+}
+
+.rtl .info-label {
+  text-align: right;
+}
+
+.rtl .info-value {
+  text-align: right;
+}
+
+.rtl .table-cell {
+  direction: rtl;
+  text-align: right;
+}
+
+.rtl .text-center {
+  text-align: center;
+}
+
+.rtl .text-left {
+  text-align: right;
+}
+
+.rtl .text-right {
+  text-align: right;
+}
+
+.rtl .signature-grid {
+  direction: rtl;
+}
+
+.rtl .bank-info-grid {
+  direction: rtl;
+}
+
+.rtl .summary-row {
+  direction: rtl;
+  justify-content: space-between;
+}
+
+.rtl .grand-total-row {
+  direction: rtl;
+  justify-content: space-between;
+}
+
+/* Arabic font - using Sakkal Majalla */
+.rtl * {
+  font-family: "Sakkal Majalla", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif, "Arabic UI Text", "Geeza Pro",
+    "Baghdad", "Andalus", sans-serif;
+  text-align: right;
+}
+
+/* Specific Arabic font class for Sakkal Majalla */
+.arabic-font {
+  font-family: "Sakkal Majalla", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Ensure English mode uses standard fonts */
+.ltr * {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.ltr {
+  direction: ltr;
+}
+
+/* Main container */
+.invoice-container {
+  min-height: 100vh;
+  background-color: #f9fafb;
+}
+
+@media print {
+  .invoice-container {
+    background-color: white;
+  }
+}
+
+/* Language toggle */
+.language-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 50;
+}
+
+@media print {
+  .language-toggle {
+    display: none;
+  }
+}
+
+.language-toggle-buttons {
+  display: flex;
+  gap: 0.25rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+  padding: 0.25rem;
+}
+
+/* Reverted language button to original size */
+.language-btn {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 0.25rem;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+  color: #4b5563;
+}
+
+.language-btn:hover {
+  color: #2563eb;
+}
+
+.language-btn-active {
+  background-color: #2563eb;
+  color: white;
+}
+
+/* PDF Download Button */
+.pdf-download-container {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 50;
+}
+
+@media print {
+  .pdf-download-container {
+    display: none;
+  }
+}
+
+/* Reverted PDF button to original size */
+.pdf-download-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.pdf-download-btn:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.pdf-download-btn:active {
+  transform: translateY(0);
+}
+
+/* No data styles */
+.no-data-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f4f6;
+}
+
+.no-data-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+
+/* Reverted no data title to original */
+.no-data-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.no-data-message {
+  color: #6b7280;
+}
+
+/* Reverted invoice page to original with max-height and overflow */
+.invoice-page {
+  max-width: 210mm;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  min-height: 280mm;
+  max-height: 297mm;
+  transform: scale(0.88);
+  transform-origin: top center;
+  overflow: hidden;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+@media print {
+  .invoice-page {
+    box-shadow: none;
+    max-width: none;
+    transform: scale(1);
+    max-height: none;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+}
+
+/* Reverted content padding to original 0.8rem */
+.invoice-content {
+  padding: 0.8rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media print {
+  .invoice-content {
+    padding: 0.6rem;
+  }
+}
+
+/* Header styles */
+/* Reverted header margin to original 0.6rem */
+.invoice-header {
+  margin-bottom: 0.6rem;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* Reverted header grid gap to original 0.4rem */
+.header-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0.4rem;
+  align-items: center;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid #2563eb;
+}
+
+.company-details-right {
+  text-align: right;
+  padding-left: 2rem;
+  margin-left: auto;
+}
+
+.rtl .company-details-right {
+  padding-left: 0;
+  margin-left: 0;
+  padding-right: 2rem;
+  margin-right: auto;
+  text-align: left;
+}
+
+/* Reverted company name to original 0.8rem */
+.company-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.2rem;
+  line-height: 1.2;
+}
+
+/* Reverted company subtitle to original 0.65rem */
+.company-subtitle {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #2563eb;
+  margin-bottom: 0.3rem;
+}
+
+/* Reverted company info to original 0.55rem */
+.company-info {
+  font-size: 0.55rem;
+  color: #4b5563;
+  line-height: 1.2;
+}
+
+.company-info p {
+  margin: 0.1rem 0;
+}
+
+/* Reverted company registration to original 0.55rem */
+.company-registration {
+  font-size: 0.55rem;
+  color: #6b7280;
+  margin-top: 0.3rem;
+  line-height: 1.2;
+}
+
+.company-registration p {
+  margin: 0.1rem 0;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* Reverted logo size to original 3.5rem */
+.logo-wrapper {
+  position: relative;
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: #f9fafb;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  padding: 0.4rem;
+}
+
+.company-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Reverted invoice title container margins to original */
+.invoice-title-container {
+  text-align: center;
+  margin-top: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+/* Reverted invoice title to original 1.1rem */
+.invoice-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2563eb;
+  background-color: #eff6ff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.25rem;
+  border: 1px solid #bfdbfe;
+}
+
+/* Info cards */
+/* Reverted info grid gap to original 0.4rem */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+  margin-bottom: 0.6rem;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.info-card {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.25rem;
+}
+
+/* Reverted info card header padding to original 0.6rem */
+.info-card-header {
+  padding: 0.6rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.client-header {
+  background-color: #f0fdf4;
+  border-bottom-color: #bbf7d0;
+}
+
+.invoice-header-info {
+  background-color: #eff6ff;
+  border-bottom-color: #bfdbfe;
+}
+
+.summary-header {
+  background-color: #f0f9ff;
+  border-bottom-color: #bae6fd;
+}
+
+.bank-header {
+  background-color: #fffbeb;
+  border-bottom-color: #fde68a;
+}
+
+/* Reverted info card title to original 0.75rem */
+.info-card-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+/* Reverted info card content padding to original 0.4rem */
+.info-card-content {
+  padding: 0.4rem;
+}
+
+/* Reverted info row font size to original 0.55rem */
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.55rem;
+  margin-bottom: 0.25rem;
+}
+
+.info-row:last-child {
+  margin-bottom: 0;
+}
+
+.info-label {
+  color: #4b5563;
+  font-weight: 500;
+}
+
+.info-value {
+  color: #111827;
+  font-weight: 500;
+}
+
+/* Reverted address value max-width to original 16rem */
+.address-value {
+  text-align: right;
+  max-width: 16rem;
+}
+
+.invoice-number {
+  color: #2563eb;
+  font-weight: 700;
+}
+
+/* Items table */
+/* Reverted items section with max-height and overflow */
+.items-section {
+  margin-bottom: 0.8rem;
+  page-break-inside: avoid;
+  break-inside: avoid;
+  max-height: 140mm;
+  overflow: hidden;
+}
+
+/* Reverted items header padding to original 0.8rem */
+.items-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.8rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+/* Reverted items title to original 0.9rem */
+.items-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 0;
+  text-align: center;
+}
+
+.table-container {
+  border: 2px solid #e2e8f0;
+  border-top: none;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Reverted table font size to original 0.6rem */
+.items-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.6rem;
+  background-color: white;
+  table-layout: fixed;
+}
+
+/* Column widths */
+.items-table .table-cell:nth-child(1) {
+  width: 3%;
+}
+.items-table .table-cell:nth-child(2) {
+  width: 25%;
+}
+.items-table .table-cell:nth-child(3) {
+  width: 8%;
+}
+.items-table .table-cell:nth-child(4) {
+  width: 14%;
+}
+.items-table .table-cell:nth-child(5) {
+  width: 14%;
+}
+.items-table .table-cell:nth-child(6) {
+  width: 10%;
+}
+.items-table .table-cell:nth-child(7) {
+  width: 14%;
+}
+.items-table .table-cell:nth-child(8) {
+  width: 12.5%;
+}
+
+.table-header {
+  background: linear-gradient(to right, #f8fafc, #e2e8f0);
+}
+
+/* Reverted table cell to original 0.55rem */
+.table-cell {
+  padding: 0.4rem 0.2rem;
+  border-bottom: 1px solid #e2e8f0;
+  border-right: 1px solid #e2e8f0;
+  vertical-align: middle;
+  font-size: 0.55rem;
+  line-height: 1.2;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* Reverted table header cell to original 0.5rem */
+.table-header-cell {
+  padding: 0.5rem 0.2rem;
+  font-weight: 700;
+  color: #2d3748;
+  border-bottom: 2px solid #cbd5e0;
+  border-right: 1px solid #e2e8f0;
+  font-size: 0.5rem;
+  line-height: 1.1;
+  background: linear-gradient(to right, #f8fafc, #e2e8f0);
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.no-border-right {
+  border-right: none !important;
+}
+
+.table-row {
+  transition: background-color 0.2s ease;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.table-row:hover {
+  background-color: #f7fafc;
+}
+
+.table-row-even {
+  background-color: #ffffff;
+}
+
+.table-row-odd {
+  background-color: #f8fafc;
+}
+
+.description-container {
+  line-height: 1.3;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.description-primary {
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.2rem;
+}
+
+/* Reverted description secondary to original 0.5rem */
+.description-secondary {
+  color: #718096;
+  font-style: italic;
+  font-size: 0.5rem;
+}
+
+.total-cell {
+  font-weight: 700;
+  color: #2b6cb0;
+  background-color: #ebf8ff;
+}
+
+.vat-rate {
+  color: #e53e3e;
+  font-weight: 600;
+}
+
+/* RTL adjustments */
+.rtl .table-cell:nth-child(2) {
+  text-align: right;
+}
+
+.rtl .table-cell:nth-child(4),
+.rtl .table-cell:nth-child(5),
+.rtl .table-cell:nth-child(7),
+.rtl .table-cell:nth-child(8) {
+  text-align: left;
+}
+
+/* Summary section */
+/* Reverted summary grid gap to original 0.8rem */
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* Reverted summary row font size to original 0.65rem */
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  padding: 0.2rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Reverted grand total row font size to original 0.75rem */
+.grand-total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  padding: 0.4rem;
+  background-color: #eff6ff;
+  border-radius: 0.25rem;
+  border: 1px solid #bfdbfe;
+  margin-top: 0.4rem;
+}
+
+.grand-total-label {
+  color: #1e40af;
+  font-weight: 700;
+}
+
+.grand-total-value {
+  color: #1e40af;
+  font-weight: 700;
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* Bank section */
+/* Reverted bank section margin to original 0.8rem */
+.bank-section {
+  margin-bottom: 0.8rem;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.bank-card {
+  background-color: #fffbeb;
+  border-color: #fde68a;
+}
+
+/* Reverted bank info grid font size to original 0.65rem */
+.bank-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  font-size: 0.65rem;
+}
+
+.bank-name {
+  font-weight: 500;
+}
+
+.iban-value {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  background-color: #fef3c7;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+}
+
+/* Signature section */
+/* Reverted signature grid gap to original 1.2rem */
+.signature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 0.4rem;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.signature-section {
+  text-align: center;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* Reverted signature line height to original 2.5rem */
+.signature-line {
+  height: 2.5rem;
+  border-bottom: 1px solid #d1d5db;
+  margin-bottom: 0.4rem;
+}
+
+/* Reverted stamp container height to original 2.5rem */
+.stamp-container {
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.4rem;
+}
+
+/* Reverted stamp placeholder size to original 4.5rem x 2.5rem */
+.stamp-placeholder {
+  width: 4.5rem;
+  height: 2.5rem;
+  border: 1px dashed #d1d5db;
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9fafb;
+}
+
+/* Reverted stamp text to original 0.65rem */
+.stamp-text {
+  color: #9ca3af;
+  font-size: 0.65rem;
+}
+
+/* Reverted signature info to original 0.65rem */
+.signature-info {
+  font-size: 0.65rem;
+  line-height: 1.3;
+}
+
+.signature-name {
+  color: #2563eb;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.signature-title {
+  color: #4b5563;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.signature-label {
+  color: #6b7280;
+}
+
+/* Footer */
+.invoice-footer {
+  text-align: center;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 0.4rem;
+  margin-top: auto;
+}
+
+/* Reverted footer text to original 0.65rem */
+.footer-text {
+  font-size: 0.65rem;
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* Print styles */
+@media print {
+  .language-toggle,
+  .pdf-download-container {
+    display: none !important;
+  }
+
+  .invoice-container {
+    background: white !important;
+  }
+
+  .invoice-page {
+    box-shadow: none !important;
+    max-width: none !important;
+    transform: none !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    max-height: none !important;
+  }
+
+  .invoice-content {
+    padding: 0.5rem !important;
+  }
+
+  .avoid-break,
+  .items-section,
+  .signature-section,
+  .bank-section,
+  .info-grid,
+  .summary-grid {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .table-row {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .table-cell {
+    font-size: 0.5rem !important;
+    padding: 0.3rem 0.15rem !important;
+  }
+
+  .table-header-cell {
+    font-size: 0.45rem !important;
+    padding: 0.4rem 0.15rem !important;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-height: 800px) {
+  .invoice-page {
+    transform: scale(0.8);
+  }
+}
+
+@media (max-height: 700px) {
+  .invoice-page {
+    transform: scale(0.75);
+  }
+}
