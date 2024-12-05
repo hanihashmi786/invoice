@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import API_BASE_URL from "../config"
 import "../styles/Dashboard.css"
 
 // Saudi Riyal Icon Component
@@ -39,7 +40,7 @@ const Dashboard = ({ onNavigate, onLogout }) => {
       setLoading(true)
 
       // Fetch projects and invoices
-      const [projectsRes, invoicesRes] = await Promise.all([fetch("/api/projects/"), fetch("/api/invoices/")])
+      const [projectsRes, invoicesRes] = await Promise.all([fetch(`${API_BASE_URL}/api/projects/`), fetch(`${API_BASE_URL}/api/invoices/`)])
 
       const projects = await projectsRes.json()
       const invoices = await invoicesRes.json()

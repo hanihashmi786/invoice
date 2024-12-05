@@ -25,7 +25,12 @@ SECRET_KEY = 'django-insecure-m3y87y4myn)58-m^zmtat$ek2mya*%2qtkid151))0ai174%p2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# Production EC2 instance configuration
+# EC2 IP: 13.48.56.41
+import os
+ALLOWED_HOSTS = ['13.48.56.41', 'localhost', '127.0.0.1']
+# Agar environment variable se set karna ho to:
+# ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '13.48.56.41,localhost').split(',')
 
 
 # Application definition
@@ -127,7 +132,12 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# CORS Configuration - S3 frontend domain allow karna
 CORS_ALLOW_ALL_ORIGINS = True
+# Specific origins allow karne ke liye (optional):
+# CORS_ALLOWED_ORIGINS = [
+#     "http://amzn-invoice-bucket-project.s3-website.eu-north-1.amazonaws.com",
+# ]
 
 # REST Framework settings
 REST_FRAMEWORK = {

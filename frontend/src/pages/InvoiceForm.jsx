@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import axios from "axios"
+import API_BASE_URL from "../config"
 import "../styles/InvoiceForm.css"
 
 const BANKS = [
@@ -127,7 +128,7 @@ export default function InvoiceForm({ onSubmit }) {
   useEffect(() => {
     async function fetchProjects() {
       try {
-        const res = await axios.get("http://localhost:8000/api/projects/")
+        const res = await axios.get(`${API_BASE_URL}/api/projects/`)
         setProjects(res.data)
       } catch (error) {
         console.error("Error fetching projects:", error)
@@ -146,7 +147,7 @@ export default function InvoiceForm({ onSubmit }) {
 
   async function fetchNextInvoiceNumber(projectId) {
     try {
-      const res = await axios.get("http://localhost:8000/api/next_invoice_number_for_project/", {
+      const res = await axios.get(`${API_BASE_URL}/api/next_invoice_number_for_project/`, {
         params: { project_id: projectId },
       })
       setForm((prev) => ({
@@ -210,7 +211,7 @@ export default function InvoiceForm({ onSubmit }) {
         projectIdToUse = existing.id
       } else {
         try {
-          const projectRes = await axios.post("http://localhost:8000/api/projects/", { name: newProjectName })
+          const projectRes = await axios.post(`${API_BASE_URL}/api/projects/`, { name: newProjectName })
           projectIdToUse = projectRes.data.id
         } catch (err) {
           alert(err?.response?.data?.name?.[0] || err?.response?.data?.detail || "Failed to create project.")
@@ -263,7 +264,7 @@ export default function InvoiceForm({ onSubmit }) {
     }
 
     try {
-      const res = await axios.post("http://localhost:8000/api/invoices/", payload)
+      const res = await axios.post(`${API_BASE_URL}/api/invoices/`, payload)
       setLoading(false)
       setInvoiceData(res.data)
       setShowPreview(true)

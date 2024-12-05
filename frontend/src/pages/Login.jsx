@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import API_BASE_URL from "../config"
 import "../styles/Login.css"
 
 // Saudi Riyal Icon Component
@@ -32,7 +33,7 @@ const Login = ({ onLogin }) => {
     setLoading(true)
 
     try {
-      const response = await fetch("/api/auth/login/", {
+      const response = await fetch(`${API_BASE_URL}/api/auth/login/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

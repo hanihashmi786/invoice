@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import axios from "axios"
+import API_BASE_URL from "../config"
 import "../styles/InvoiceHistory.css"
 
 // Saudi Riyal Icon Component
@@ -56,8 +57,8 @@ export default function InvoiceHistory({ onViewInvoice, onBack }) {
     setLoading(true)
     try {
       const [projectsRes, invoicesRes] = await Promise.all([
-        axios.get("http://localhost:8000/api/projects/"),
-        axios.get("http://localhost:8000/api/invoices/"),
+        axios.get(`${API_BASE_URL}/api/projects/`),
+        axios.get(`${API_BASE_URL}/api/invoices/`),
       ])
       setProjects(projectsRes.data)
       setInvoices(invoicesRes.data)
