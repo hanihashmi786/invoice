@@ -26,11 +26,11 @@ SECRET_KEY = 'django-insecure-m3y87y4myn)58-m^zmtat$ek2mya*%2qtkid151))0ai174%p2
 DEBUG = True
 
 # Production EC2 instance configuration
-# EC2 IP: 13.48.56.41
+# EC2 IP: 16.171.199.158
 import os
-ALLOWED_HOSTS = ['13.48.56.41', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['16.171.199.158', 'localhost', '127.0.0.1']
 # Agar environment variable se set karna ho to:
-# ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '13.48.56.41,localhost').split(',')
+# ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '16.171.199.158,localhost').split(',')
 
 
 # Application definition

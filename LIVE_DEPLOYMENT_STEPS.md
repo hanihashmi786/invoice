@@ -2,7 +2,7 @@
 
 ## Your Configuration:
 - **Frontend URL:** http://amzn-invoice-bucket-project.s3-website.eu-north-1.amazonaws.com/
-- **Backend IP:** 13.48.56.41
+- **Backend IP:** 16.171.199.158
 - **Backend Port:** 8000
 
 ## ✅ Code Changes (Already Done):
@@ -34,7 +34,7 @@ npm run build
 
 1. **EC2 instance par SSH karo:**
 ```bash
-ssh -i your-key.pem ubuntu@13.48.56.41
+ssh -i your-key.pem ubuntu@16.171.199.158
 ```
 
 2. **Backend folder mein jao:**
@@ -84,7 +84,7 @@ AWS Console mein:
    - Network tab check karo
 
 2. **Backend test:**
-   - Browser mein kholo: http://13.48.56.41:8000/api/projects/
+   - Browser mein kholo: http://16.171.199.158:8000/api/projects/
    - Response check karo
 
 3. **API Connection test:**
@@ -133,7 +133,7 @@ cd backend && python manage.py runserver 0.0.0.0:8000
 cd backend && gunicorn backend.wsgi:application --bind 0.0.0.0:8000
 
 # Check if port is open
-curl http://13.48.56.41:8000/api/projects/
+curl http://16.171.199.158:8000/api/projects/
 ```
 
 ## ✅ Final Checklist:
