@@ -64,7 +64,7 @@ const Login = ({ onLogin }) => {
       onLogin()
     } catch (error) {
       console.error("Login error:", error)
-      setError(`Connection error: ${error.message}. Make sure the backend server is running on http://localhost:8000`)
+      setError(`Connection error: ${error.message}. Make sure the backend server is running on ${API_BASE_URL}`)
     } finally {
       setLoading(false)
     }

@@ -1,39 +1,20 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Dashboard from "./pages/Dashboard"
 import InvoiceForm from "./pages/InvoiceForm"
 import InvoicePage from "./pages/InvoicePage"
 import InvoiceHistory from "./pages/InvoiceHistory"
-import Login from "./pages/Login"
 import "./App.css"
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  // Login hataya gaya: seedha dashboard par le jao
   const [currentPage, setCurrentPage] = useState("dashboard")
   const [invoiceData, setInvoiceData] = useState(null)
-  const [loading, setLoading] = useState(true)
 
-  // Check authentication status on mount
-  useEffect(() => {
-    // Check if user is authenticated (you can check localStorage or make an API call)
-    const token = localStorage.getItem("authToken")
-    if (token) {
-      setIsAuthenticated(true)
-    }
-    setLoading(false)
-  }, [])
-
-  // Handle login
-  const handleLogin = () => {
-    setIsAuthenticated(true)
-    setCurrentPage("dashboard")
-  }
-
-  // Handle logout
+  // Handle logout (agar future mein chahiye ho)
   const handleLogout = () => {
     localStorage.removeItem("authToken")
-    setIsAuthenticated(false)
     setCurrentPage("dashboard")
   }
 
@@ -54,20 +35,6 @@ function App() {
   // Handle back from preview
   const handleBackFromPreview = () => {
     setCurrentPage("form")
-  }
-
-  // Show loading state
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-        <div className="spinner"></div>
-      </div>
-    )
-  }
-
-  // Show login page if not authenticated
-  if (!isAuthenticated) {
-    return <Login onLogin={handleLogin} />
   }
 
   // Render current page based on state
