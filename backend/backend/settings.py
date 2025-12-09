@@ -139,10 +139,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CORS Configuration - S3 frontend domain allow karna
 CORS_ALLOW_ALL_ORIGINS = True
-# Specific origins allow karne ke liye (optional):
-# CORS_ALLOWED_ORIGINS = [
-#     "http://amzn-invoice-bucket-project.s3-website.eu-north-1.amazonaws.com",
-# ]
+CSRF_TRUSTED_ORIGINS = [
+    "http://amzn-invoice-bucket-project.s3-website.eu-north-1.amazonaws.com",
+    "https://amzn-invoice-bucket-project.s3-website.eu-north-1.amazonaws.com",
+]
+
 
 # REST Framework settings
 REST_FRAMEWORK = {
